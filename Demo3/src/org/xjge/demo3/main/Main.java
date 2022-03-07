@@ -1,11 +1,11 @@
 package org.xjge.demo3.main;
 
 import java.util.Map;
+import org.lwjgl.glfw.GLFWVidMode;
 import org.xjge.core.Game;
 import org.xjge.core.Hardware;
 import org.xjge.core.Logger;
 import org.xjge.core.Monitor;
-import org.xjge.core.Speaker;
 import org.xjge.core.XJGE;
 import org.xjge.demo3.scenes.TestScene;
 
@@ -20,24 +20,13 @@ public class Main {
         
         XJGE.init("/org/xjge/demo3/assets/", "org.xjge.demo3.scenes.", null);
         
-        Map<Integer, Monitor> monitors = Hardware.findMonitors();
-        Map<Integer, Speaker> speakers = Hardware.findSpeakers();
+        Monitor monitor = Hardware.getCurrentMonitor();
         
-        monitors.values().forEach(monitor -> {
-            Logger.logInfo(monitor.name + ", " + monitor.getInfo());
+        Map<String, GLFWVidMode> videoModes = monitor.getVideoModes();
+        
+        videoModes.forEach((desc, mode) -> {
+            Logger.logInfo(desc);
         });
-        
-        System.out.println(); //Added to make console ouput more legible
-        
-        speakers.values().forEach(speaker -> {
-            Logger.logInfo(speaker.name);
-        });
-        
-        System.out.println();
-        
-        Logger.logInfo("Vsync enabled: " + Hardware.getVSyncEnabled());
-        
-        System.out.println();
         
         Game.setScene(new TestScene("test"));
         
