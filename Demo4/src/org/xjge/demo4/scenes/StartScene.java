@@ -26,7 +26,18 @@ public class StartScene extends Scene {
         
         //Game.setClearColor(Color.RED); //Remember to import org.xjge.graphics.Color NOT java.awt!
         
-        skybox = new Skybox("sky_day_top.png", "sky_day_center.png", "sky_day_bottom.png", true);
+        
+        skybox = new Skybox(
+                "sky_grid_right.png",  //Side #1 - right side
+                "sky_grid_left.png",   //Side #2 - left side
+                "sky_grid_top.png",    //Side #3 - above
+                "sky_grid_bottom.png", //Side #4 - below
+                "sky_grid_front.png",  //Side #5 - in front
+                "sky_grid_back.png",   //Side #6 - behind
+                false);
+        
+        
+        //skybox = new Skybox("sky_day_top.png", "sky_day_center.png", "sky_day_bottom.png", true);
         
         setSkybox(skybox);
     }
@@ -40,9 +51,8 @@ public class StartScene extends Scene {
         speed as a result- making it ideal for physics and gameplay features.
         */
         
-        angle -= 0.025f;
-        
-        skybox.getModelMatrix().rotationY((float) Math.toRadians(angle));
+        //angle -= 0.025f;
+        //skybox.getModelMatrix().rotationY((float) Math.toRadians(angle));
     }
 
     @Override
