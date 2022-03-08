@@ -12,6 +12,10 @@ import org.xjge.graphics.GLProgram;
  * @author J Hoffman
  */
 public class StartScene extends Scene {
+    
+    float angle;
+    
+    Skybox skybox;
 
     public StartScene(String name) {
         super(name);
@@ -22,7 +26,7 @@ public class StartScene extends Scene {
         
         //Game.setClearColor(Color.RED); //Remember to import org.xjge.graphics.Color NOT java.awt!
         
-        Skybox skybox = new Skybox("sky_noon_top.png", "sky_noon_center.png", "sky_noon_bottom.png", true);
+        skybox = new Skybox("sky_noon_top.png", "sky_noon_center.png", "sky_noon_bottom.png", true);
         
         setSkybox(skybox);
     }
@@ -36,7 +40,9 @@ public class StartScene extends Scene {
         speed as a result- making it ideal for physics and gameplay features.
         */
         
+        angle -= 0.025f;
         
+        skybox.getModelMatrix().rotationY((float) Math.toRadians(angle));
     }
 
     @Override
