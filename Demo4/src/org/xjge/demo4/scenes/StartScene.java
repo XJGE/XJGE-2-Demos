@@ -26,7 +26,7 @@ public class StartScene extends Scene {
         
         //Game.setClearColor(Color.RED); //Remember to import org.xjge.graphics.Color NOT java.awt!
         
-        skybox = new Skybox("sky_noon_top.png", "sky_noon_center.png", "sky_noon_bottom.png", true);
+        skybox = new Skybox("sky_day_top.png", "sky_day_center.png", "sky_day_bottom.png", true);
         
         setSkybox(skybox);
     }
