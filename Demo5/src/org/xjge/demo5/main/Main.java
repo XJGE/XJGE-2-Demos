@@ -9,9 +9,7 @@ import org.xjge.graphics.BufferType;
 import org.xjge.graphics.GLProgram;
 import org.xjge.graphics.Shader;
 
-/**
- * Mar 8, 2022
- */
+//Created: Mar 8, 2022
 
 /**
  * @author J Hoffman
