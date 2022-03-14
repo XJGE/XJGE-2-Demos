@@ -22,6 +22,7 @@ public class TestScene extends Scene {
 
     @Override
     public void render(Map<String, GLProgram> glPrograms, int viewportID, Camera camera, int depthTexHandle) {
+        glPrograms.get("example").use(); //Call this to change the current shader program.
     }
 
     @Override

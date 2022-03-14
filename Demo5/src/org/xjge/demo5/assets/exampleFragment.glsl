@@ -2,10 +2,8 @@
 
 in vec3 ioColor;
 
-out vec4 ioResult;
-
 void main() {
 
-    ioResult = vec4(ioColor, 0);
+    gl_FragColor = vec4(ioColor, 0);
     
 }
