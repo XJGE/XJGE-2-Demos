@@ -3,6 +3,7 @@ package org.xjge.demo6.scenes;
 import java.util.Map;
 import org.xjge.core.Camera;
 import org.xjge.core.Scene;
+import org.xjge.core.Skybox;
 import org.xjge.graphics.GLProgram;
 
 /**
@@ -15,12 +16,21 @@ import org.xjge.graphics.GLProgram;
  */
 public class TestScene extends Scene {
 
+    float angle;
+    
+    Skybox skybox;
+    
     public TestScene(String name) {
         super(name);
+        
+        skybox = new Skybox("sky_day_top.png", "sky_day_center.png", "sky_day_bottom.png", true);
+        setSkybox(skybox);
     }
 
     @Override
     public void update(double targetDelta, double trueDelta) {
+        angle -= 0.025f;
+        skybox.getModelMatrix().rotationY((float) Math.toRadians(angle));
     }
 
     @Override
