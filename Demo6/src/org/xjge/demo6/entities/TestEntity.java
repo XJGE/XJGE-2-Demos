@@ -54,6 +54,8 @@ public class TestEntity extends Entity {
         
         g.modelMatrix.translation(position);
         g.modelMatrix.rotateY((float) Math.toRadians(angle));
+        
+        //rotateY must be called after translation otherwise this wont work.
     }
 
     @Override
