@@ -2,6 +2,7 @@ package org.xjge.demo6.scenes;
 
 import java.util.Map;
 import org.xjge.core.Camera;
+import org.xjge.core.Game;
 import org.xjge.core.Scene;
 import org.xjge.core.Skybox;
 import org.xjge.demo6.entities.TestEntity;
@@ -14,9 +15,12 @@ import org.xjge.graphics.GLProgram;
  */
 public class TestScene extends Scene {
 
-    float angle;
+    private int count;
     
-    Skybox skybox;
+    private float angle;
+    
+    private Skybox skybox;
+    private TestEntity triangle;
     
     public TestScene(String name) {
         super(name);
@@ -24,7 +28,8 @@ public class TestScene extends Scene {
         skybox = new Skybox("sky_day_top.png", "sky_day_center.png", "sky_day_bottom.png", true);
         setSkybox(skybox);
         
-        entities.put("triangle", new TestEntity(0, 0, -20));
+        triangle = new TestEntity(0, 0, -20);
+        entities.put("triangle", triangle);
     }
 
     @Override
@@ -33,6 +38,21 @@ public class TestScene extends Scene {
         skybox.getModelMatrix().rotationY((float) Math.toRadians(angle));
         
         entities.values().forEach(entity -> entity.update(targetDelta, trueDelta));
+        
+        if(Game.tick(60)) {
+            count++;
+            
+            if(count == 5) {
+                if(entities.containsKey("triangle")) {
+                    triangle.remove();
+                } else {
+                    triangle = new TestEntity(0, 0, -20);
+                    entities.put("triangle", triangle);
+                }
+                
+                count = 0;
+            }
+        }
     }
 
     @Override
