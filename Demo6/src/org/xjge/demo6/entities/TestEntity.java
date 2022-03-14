@@ -69,7 +69,7 @@ public class TestEntity extends Entity {
         glProgram.setUniform("uModel", false, g.modelMatrix);
         
         glDrawArrays(GL_TRIANGLES, 0, 3);
-        glDisable(GL_DEPTH_TEST); //It's generally considered good practive to reset these things.
+        glDisable(GL_DEPTH_TEST); //It's generally considered good practice to reset these things.
         
         ErrorUtils.checkGLError();
     }
@@ -95,7 +95,7 @@ public class TestEntity extends Entity {
         /*
         Called after an entity has been removed from the Entities collection in
         the current scene to free whatever memory and resources it may have 
-        allocated.
+        allocated. You should not attempt to call this manually.
         */
         
         g.freeBuffers();
