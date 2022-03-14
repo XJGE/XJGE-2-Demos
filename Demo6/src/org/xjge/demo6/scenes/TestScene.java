@@ -6,13 +6,10 @@ import org.xjge.core.Scene;
 import org.xjge.core.Skybox;
 import org.xjge.graphics.GLProgram;
 
-/**
- * Mar 14, 2022
- */
+//Created: Mar 14, 2022
 
 /**
  * @author J Hoffman
- * @since  
  */
 public class TestScene extends Scene {
 
