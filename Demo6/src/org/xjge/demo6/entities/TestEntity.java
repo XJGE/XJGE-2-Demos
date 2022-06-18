@@ -61,19 +61,21 @@ public class TestEntity extends Entity {
     @Override
     public void render(GLProgram glProgram, Camera camera, Light[] lights, int depthTexHandle) {
         /*
-        Simplified variant of render that only uses a single GLProgram object.
+        The removalRequested() method used in the if statement here ensures no
+        invalid data is passed to OpenGL after the entities resources are freed.
         */
-        
-        glEnable(GL_DEPTH_TEST);
-        glBindVertexArray(g.vao);
-        
-        glProgram.use();
-        glProgram.setUniform("uModel", false, g.modelMatrix);
-        
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        glDisable(GL_DEPTH_TEST); //It's generally considered good practice to reset these things.
-        
-        ErrorUtils.checkGLError();
+        if(!removalRequested()) {
+            glEnable(GL_DEPTH_TEST);
+            glBindVertexArray(g.vao);
+
+            glProgram.use();
+            glProgram.setUniform("uModel", false, g.modelMatrix);
+
+            glDrawArrays(GL_TRIANGLES, 0, 3);
+            glDisable(GL_DEPTH_TEST); //Reset OpenGL state so other entities arent inadvertently effected.
+
+            ErrorUtils.checkGLError();
+        }
     }
 
     @Override
