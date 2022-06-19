@@ -62,7 +62,8 @@ public class TestEntity extends Entity {
     public void render(GLProgram glProgram, Camera camera, Light[] lights, int depthTexHandle) {
         /*
         The removalRequested() method used in the if statement here ensures no
-        invalid data is passed to OpenGL after the entities resources are freed.
+        invalid data is passed to OpenGL after the entities resources are freed
+        with the destroy() method.
         */
         if(!removalRequested()) {
             glEnable(GL_DEPTH_TEST);
