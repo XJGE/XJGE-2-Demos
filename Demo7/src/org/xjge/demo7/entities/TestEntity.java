@@ -17,8 +17,6 @@ import org.xjge.graphics.Graphics;
  * @author J Hoffman
  */
 public class TestEntity extends Entity {
-
-    private float angle;
     
     private Graphics g = new Graphics();
     
@@ -47,10 +45,7 @@ public class TestEntity extends Entity {
     
     @Override
     public void update(double targetDelta, double trueDelta) {
-        angle += 1f;
-        
         g.modelMatrix.translation(position);
-        g.modelMatrix.rotateY((float) Math.toRadians(angle));
     }
 
     @Override

@@ -2,7 +2,6 @@ package org.xjge.demo7.scenes;
 
 import java.util.Map;
 import org.xjge.core.Camera;
-import org.xjge.core.Game;
 import org.xjge.core.Scene;
 import org.xjge.core.Skybox;
 import org.xjge.demo7.entities.TestEntity;
@@ -38,21 +37,6 @@ public class TestScene extends Scene {
         skybox.getModelMatrix().rotationY((float) Math.toRadians(angle));
         
         entities.values().forEach(entity -> entity.update(targetDelta, trueDelta));
-        
-        if(Game.tick(60)) {
-            count++;
-            
-            if(count == 5) {
-                if(entities.containsKey("triangle")) {
-                    triangle.remove();
-                } else {
-                    triangle = new TestEntity(0, 0, -20);
-                    entities.put("triangle", triangle);
-                }
-                
-                count = 0;
-            }
-        }
     }
 
     @Override
