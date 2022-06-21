@@ -2,6 +2,8 @@ package org.xjge.demo7.scenes;
 
 import java.util.Map;
 import org.xjge.core.Camera;
+import org.xjge.core.Input;
+import static org.xjge.core.Input.KEY_MOUSE_COMBO;
 import org.xjge.core.Scene;
 import org.xjge.core.Skybox;
 import org.xjge.demo7.entities.TestEntity;
@@ -29,6 +31,8 @@ public class TestScene extends Scene {
         
         triangle = new TestEntity(0, 0, -20);
         entities.put("triangle", triangle);
+        
+        Input.setDevicePuppet(KEY_MOUSE_COMBO, triangle.puppet);
     }
 
     @Override

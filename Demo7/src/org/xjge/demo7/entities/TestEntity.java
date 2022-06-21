@@ -1,13 +1,16 @@
 package org.xjge.demo7.entities;
 
 import java.util.Map;
+import static javax.management.Query.value;
 import org.joml.Vector3f;
 import static org.lwjgl.opengl.GL30.*;
 import org.lwjgl.system.MemoryStack;
 import org.xjge.core.Camera;
+import org.xjge.core.Control;
 import org.xjge.core.Entity;
 import org.xjge.core.ErrorUtils;
 import org.xjge.core.Light;
+import org.xjge.core.Puppet;
 import org.xjge.graphics.GLProgram;
 import org.xjge.graphics.Graphics;
 
@@ -18,10 +21,16 @@ import org.xjge.graphics.Graphics;
  */
 public class TestEntity extends Entity {
     
-    private Graphics g = new Graphics();
+    private Graphics g   = new Graphics();
+    public Puppet puppet = new Puppet(this);
     
     public TestEntity(float x, float y, float z) {
         super(new Vector3f(x, y, z));
+        
+        puppet.commands.put(Control.DPAD_UP,    new CommandMove("up", this));
+        puppet.commands.put(Control.DPAD_DOWN,  new CommandMove("down", this));
+        puppet.commands.put(Control.DPAD_LEFT,  new CommandMove("left", this));
+        puppet.commands.put(Control.DPAD_RIGHT, new CommandMove("right", this));
         
         try(MemoryStack stack = MemoryStack.stackPush()) {
             g.vertices = stack.mallocFloat(18);
