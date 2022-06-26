@@ -15,8 +15,6 @@ import org.xjge.graphics.GLProgram;
  * @author J Hoffman
  */
 public class TestScene extends Scene {
-
-    private int count;
     
     private float angle;
     
@@ -32,6 +30,7 @@ public class TestScene extends Scene {
         triangle = new TestEntity(0, 0, -20);
         entities.put("triangle", triangle);
         
+        //Permit the mouse and keyboard to control the test entity.
         Input.setDevicePuppet(KEY_MOUSE_COMBO, triangle.puppet);
     }
 

@@ -22,8 +22,6 @@ class CommandMove extends Command {
         if(buttonPressed()) {
             System.out.println(direction + " pressed.");
         }
-        
-        //TODO: add switch
     }
 
 }

@@ -1,7 +1,6 @@
 package org.xjge.demo7.entities;
 
 import java.util.Map;
-import static javax.management.Query.value;
 import org.joml.Vector3f;
 import static org.lwjgl.opengl.GL30.*;
 import org.lwjgl.system.MemoryStack;
