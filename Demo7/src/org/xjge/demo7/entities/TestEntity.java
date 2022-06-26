@@ -20,6 +20,8 @@ import org.xjge.graphics.Graphics;
  */
 public class TestEntity extends Entity {
     
+    
+    
     private Graphics g   = new Graphics();
     public Puppet puppet = new Puppet(this);
     

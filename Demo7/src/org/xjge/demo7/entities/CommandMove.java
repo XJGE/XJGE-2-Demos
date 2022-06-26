@@ -20,7 +20,13 @@ class CommandMove extends Command {
     @Override
     public void execute() {
         if(buttonPressed()) {
-            System.out.println(direction + " pressed.");
+            switch(direction) {
+                //The default view of the scene has -Z is facing away from the camera.
+                case "up"    -> entity.position.z--;
+                case "down"  -> entity.position.z++;
+                case "left"  -> entity.position.x--;
+                case "right" -> entity.position.x++;
+            }
         }
     }
 
